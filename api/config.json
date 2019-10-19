@@ -1,0 +1,7 @@
+{
+  "dev": {
+    "mongoUrl": "mongodb://localhost:27017/",
+    "mongoDatabase": "lowestrandom",
+    "port": "4000"
+  }
+}

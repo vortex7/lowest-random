@@ -1,0 +1,28 @@
+{
+  "name": "lowest-random-api",
+  "version": "1.0.0",
+  "description": "lowest-random-api",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vortex7/lowest-random-api.git"
+  },
+  "author": "vortex7",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vortex7/lowest-random-api/issues"
+  },
+  "homepage": "https://github.com/vortex7/lowest-random-api#readme",
+  "dependencies": {
+    "@scoutsdk/server-sdk": "^0.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "mongodb": "^3.3.2",
+    "prepared-connector": "file:../../prepared-connector"
+  }
+}
