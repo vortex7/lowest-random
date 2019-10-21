@@ -1,0 +1,49 @@
+digraph {
+  rankdir=TB;
+  {
+    WebApp [shape=box, style="rounded", color="#ebb202", fontname="helvetica", label=<
+      <table border="0">
+        <tr>
+          <td><img src="images/48/laptop.png"/></td>
+          <td>Web App</td>
+        </tr>
+      </table>
+    >]
+    Api [shape=box, style="rounded", color="#403152", fontname="helvetica", label=<
+      <table border="0">
+        <tr>
+          <td><img src="images/48/cloud.png"/></td>
+          <td>Api</td>
+        </tr>
+      </table>
+    >]
+    Kafka [shape=box, style="rounded", color="#2a80d6", fontname="helvetica", label=<
+      <table border="0">
+        <tr>
+          <td><img src="images/48/gears.png"/></td>
+          <td>Kafka</td>
+        </tr>
+      </table>
+    >]
+    MongoDB [shape=box, style="rounded", color="#ff4500", fontname="helvetica", label=<
+      <table border="0">
+        <tr>
+          <td><img src="images/48/database.png"/></td>
+          <td>MongoDB</td>
+        </tr>
+      </table>
+    >]
+    ElasticSearch [shape=box, style="rounded", color="#403152", fontname="helvetica", label=<
+      <table border="0">
+        <tr>
+          <td><img src="images/48/search.png"/></td>
+          <td>Elastic Search</td>
+        </tr>
+      </table>
+    >]
+    WebApp -> Api [dir=forward, color="#403152", fontname="helvetica", label=<<table border="0" ><tr><td><font color="gray">Create new item</font></td></tr></table>>]
+    Api -> MongoDB [dir=forward, color="#ff4500", fontname="helvetica", label=<<table border="0" ><tr><td><font color="gray">Create new item</font></td></tr></table>>]
+    Api -> Kafka [dir=forward, color="#2a80d6", fontname="helvetica", label=<<table border="0" ><tr><td><font color="gray">New item message</font></td></tr></table>>]
+    Kafka -> ElasticSearch [dir=forward, color="#403152", fontname="helvetica", label=<<table border="0" ><tr><td><font color="gray">Index new item</font></td></tr></table>>]
+  }
+}
