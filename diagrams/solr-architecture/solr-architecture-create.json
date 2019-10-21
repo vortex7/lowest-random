@@ -1,0 +1,79 @@
+{
+ "palette": {
+   "darkGold":"#d7a800",
+   "lightGold":"#ebb202",
+   "lightPurple":"#8d55d0",
+   "darkPurple":"#403152",
+   "green":"#77933b",
+   "darkBlue":"#376092",
+   "lightBlue":"#2a80d6",
+   "orange":"#ff4500",
+   "red":"#ac080f"
+  },
+ "objects": [
+    {
+      "id":"WebApp",
+      "label":"Web App",
+      "image":"images/48/laptop.png",
+      "color":"lightGold",
+      "relationships": [
+        {
+          "to": "Api",
+          "dir": "forward",
+          "color": "darkPurple",
+          "label": "Create new item"
+        }
+      ]
+    },
+    {
+      "id":"Api",
+      "label":"Api",
+      "image":"images/48/cloud.png",
+      "color":"darkPurple",
+      "relationships": [
+        {
+          "to": "MongoDB",
+          "dir": "forward",
+          "color": "orange",
+          "label": "Create new item"
+        },
+        {
+          "to": "Kafka",
+          "dir": "forward",
+          "color": "lightBlue",
+          "label": "New item message"
+        }
+      ]
+    },
+    {
+      "id":"Kafka",
+      "label":"Kafka",
+      "image":"images/48/gears.png",
+      "color":"lightBlue",
+      "relationships": [
+        {
+          "to": "SOLRSearch",
+          "dir": "forward",
+          "color": "darkPurple",
+          "label": "Index new item"
+        }
+      ]
+    },
+    {
+      "id":"MongoDB",
+      "label":"MongoDB",
+      "image":"images/48/database.png",
+      "color":"orange",
+      "relationships": [
+      ]
+    },
+    {
+      "id":"SOLRSearch",
+      "label":"SOLR Search",
+      "image":"images/48/search.png",
+      "color":"darkPurple",
+      "relationships": [
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+ "palette": {
+   "darkGold":"#d7a800",
+   "lightGold":"#ebb202",
+   "lightPurple":"#8d55d0",
+   "darkPurple":"#403152",
+   "green":"#77933b",
+   "darkBlue":"#376092",
+   "lightBlue":"#2a80d6",
+   "orange":"#ff4500",
+   "red":"#ac080f"
+  },
+ "objects": [
+    {
+      "id":"WebApp",
+      "label":"Web App",
+      "image":"images/48/laptop.png",
+      "color":"lightGold",
+      "relationships": [
+        {
+          "to": "SOLRSearch",
+          "dir": "forward",
+          "color": "darkPurple",
+          "label": "1. Search for items"
+        },
+        {
+          "to": "Api",
+          "dir": "forward",
+          "color": "darkPurple",
+          "label": "3. Retreive found items"
+        }
+      ]
+    },
+    {
+      "id":"Api",
+      "label":"Api",
+      "image":"images/48/cloud.png",
+      "color":"darkPurple",
+      "relationships": [
+        {
+          "to": "MongoDB",
+          "dir": "forward",
+          "color": "orange",
+          "label": "4. Retreive items"
+        },
+        {
+          "to": "WebApp",
+          "dir": "forward",
+          "color": "lightGold",
+          "label": "6. Return items"
+        }
+      ]
+    },
+    {
+      "id":"MongoDB",
+      "label":"MongoDB",
+      "image":"images/48/database.png",
+      "color":"orange",
+      "relationships": [
+        {
+          "to": "Api",
+          "dir": "forward",
+          "color": "darkPurple",
+          "label": "5. Return items"
+        }
+      ]
+    },
+    {
+      "id":"SOLRSearch",
+      "label":"SOLR Search",
+      "image":"images/48/search.png",
+      "color":"darkPurple",
+      "relationships": [
+        {
+          "to": "WebApp",
+          "dir": "forward",
+          "color": "lightGold",
+          "label": "2. Return found items"
+        }
+      ]
+    }
+  ]
+}
