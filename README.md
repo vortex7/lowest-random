@@ -1,2 +1,4 @@
 # lowest-random
-Elasticsearch reference architecture
+Elasticsearch vs. SOLR bake-off
+
+![Elasticsearch](./docs/APP-ARCHITECTURE.md)
