@@ -1,4 +1,4 @@
-# App Architecture
+# Elasticsearch Architecture
 
 - [Overview](#overview)
 - [Index Elasticsearch Documents](#index-elasticsearch-documents)
@@ -12,10 +12,10 @@ This document describes an application architecture that leverages Elasticsearch
 
 Elasticsearch documents are created/updated by Kafka anytime a change is detected by the API.
 
-![app-architecture-create](../diagrams/app-architecture/app-architecture-create.svg)
+![elasticsearch-architecture-create](../diagrams/elasticsearch-architecture/elasticsearch-architecture-create.svg)
 
 ## Search Elasticsearch documents
 
 Elasticsearch documents are searched by the web application.
 
-![app-architecture-search](../diagrams/app-architecture/app-architecture-search.svg)
+![elasticsearch-architecture-search](../diagrams/elasticsearch-architecture/elasticsearch-architecture-search.svg)
