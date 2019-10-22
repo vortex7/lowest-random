@@ -35,10 +35,10 @@ app.use("/:action/:modelName", (request, response, next) => {
 
   if(action.match(/^(create)$/)) {
     const client = new Client({
-      node: "https://dcb7892072054dfebaaeb404a456e064.us-east-1.aws.found.io:9243",
+      node: process.env.ELASTIC_URL,
       auth: {
-        username: "elastic",
-        password: "ouCZ00uxuATylhD1w2nohliR"
+        username: process.env.ELASTIC_USER,
+        password: process.env.ELASTIC_PASSWORD
       }
     })
 
