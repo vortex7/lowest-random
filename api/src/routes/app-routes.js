@@ -33,9 +33,7 @@ class AppRoutes {
         }
       })
 
-      console.log(searchOptions)
-
-      // callback API
+      console.log(JSON.stringify(searchOptions)) 
       client.search({
         index: modelName,
         body: searchOptions
