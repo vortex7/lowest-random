@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/vortex7/lowest-random-api#readme",
   "dependencies": {
+    "@elastic/elasticsearch": "^7.4.0",
     "@scoutsdk/server-sdk": "^0.7.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
