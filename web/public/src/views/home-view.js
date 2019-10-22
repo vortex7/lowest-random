@@ -25,7 +25,8 @@ class HomeView extends AnimatedView {
         var request = new XMLHttpRequest();
         request.open("POST", '/lowest-random/api/search/member', true);
 
-        request.setRequestHeader("Content-Type", "application/application/json");
+        request.setRequestHeader("content-type", "application/json");
+        request.setRequestHeader("accept", "application/json");
 
         request.onreadystatechange = (result) => {
           if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
