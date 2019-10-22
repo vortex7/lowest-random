@@ -33,7 +33,7 @@ class HomeView extends AnimatedView {
         let searchInput = document.getElementById("searchValue")
 
         var request = new XMLHttpRequest();
-        request.open("POST", '/lowest-random/api/search/member', true);
+        request.open("POST", '/lowest-random/api/search/members', true);
 
         request.setRequestHeader("content-type", "application/json");
         request.setRequestHeader("accept", "application/json");
