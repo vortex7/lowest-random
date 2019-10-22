@@ -21,6 +21,7 @@ class AnimatedComponent {
     this.options.parentComponent.content.append(this.content)
 
     app.view.registerComponent(this.options.name, this)
+    this.content.id = this.options.name
   }
 
   animate() {

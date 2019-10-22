@@ -13,7 +13,7 @@ class SearchBar extends AnimatedComponent {
     elementInput.classList.add(app.config.colors.text.color)
     elementInput.placeholder = this.options.placeholder
     elementInput.type = "text"
-    elementInput.id = this.options.name
+    elementInput.id = `${this.options.name}Value`
     elementInput.onkeyup = this.options.onkeyup
 
     element.append(elementInput)

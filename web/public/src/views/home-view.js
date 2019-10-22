@@ -10,8 +10,19 @@ class HomeView extends AnimatedView {
       parentComponent: this.options.parentComponent,
     })
 
+    new Divider({
+      name: `${this.options.name}Divider`,
+      parentComponent: this.options.parentComponent,
+      cssClasses: ["app-margin-top"],
+    })
+
     new Cell({
       name: "SearchBoxCell",
+      parentComponent: this.options.parentComponent
+    })
+
+    new Cell({
+      name: "SearchResults",
       parentComponent: this.options.parentComponent
     })
 
@@ -19,8 +30,7 @@ class HomeView extends AnimatedView {
       name: "search",
       placeholder: "Enter search terms",
       onkeyup: () => {
-        let searchInput = document.getElementById("search")
-        console.log(searchInput.value)
+        let searchInput = document.getElementById("searchValue")
 
         var request = new XMLHttpRequest();
         request.open("POST", '/lowest-random/api/search/member', true);
@@ -31,8 +41,34 @@ class HomeView extends AnimatedView {
         request.onreadystatechange = (result) => {
           if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
             // Request finished. Do processing here.
+            let searchResultsCell = app.view.components["SearchResults"]
+            searchResultsCell.content.innerHTML = ""
+
             let data = JSON.parse(request.responseText)
-            console.log(data)
+
+            let items = []
+            data.forEach((item) => {
+              items.push({
+                name: item._source.name
+              })
+            })
+
+            if(items && items.length) {
+              // Table
+              new Table({
+                name: `${this.options.name}Table`, 
+                title: "UNIT",
+                parentComponent: app.view.components["SearchResults"],
+                columns: [
+                  {
+                    name: "name",
+                    title: "Name",
+                    type: "text",
+                  }
+                ],
+                items: items
+              })
+            }
           }
         }
 
@@ -46,5 +82,7 @@ class HomeView extends AnimatedView {
       },
       parentComponent: app.view.components["SearchBoxCell"]
     })
+
+
   }
 }
