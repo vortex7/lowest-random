@@ -73,10 +73,22 @@ class HomeView extends AnimatedView {
         }
 
         let searchOptions = {
+          "query": {
+            "simple_query_string" : {
+              "fields" : ["name"],
+              "query" : `${searchInput.value}*`,
+              "default_operator": "and"
+            }
+          }
+        }
+
+        /*
+        let searchOptions = {
           query: {
             match: { name: searchInput.value }
           }
         }
+        */
 
         request.send(JSON.stringify(searchOptions))
       },
