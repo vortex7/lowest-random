@@ -32,11 +32,11 @@ class HomeView extends AnimatedView {
       onkeyup: () => {
         let searchInput = document.getElementById("searchValue")
 
-        var request = new XMLHttpRequest();
-        request.open("POST", '/lowest-random/api/search/members', true);
+        let request = new XMLHttpRequest()
+        request.open("POST", '/lowest-random/api/search/members', true)
 
-        request.setRequestHeader("content-type", "application/json");
-        request.setRequestHeader("accept", "application/json");
+        request.setRequestHeader("content-type", "application/json")
+        request.setRequestHeader("accept", "application/json")
 
         request.onreadystatechange = (result) => {
           if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
@@ -53,11 +53,11 @@ class HomeView extends AnimatedView {
               })
             })
 
-            if(items && items.length) {
+            if(items && items.length > 0) {
               // Table
               new Table({
                 name: `${this.options.name}Table`, 
-                title: "UNIT",
+                title: "MEMBERS",
                 parentComponent: app.view.components["SearchResults"],
                 columns: [
                   {
