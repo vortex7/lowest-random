@@ -1,3 +1,4 @@
+const axios = require("axios")
 const { Client } = require("@elastic/elasticsearch")
 
 class AppRoutes {
@@ -21,7 +22,7 @@ class AppRoutes {
       })
     })
 
-    router.post("/search/:modelName", (request, response) => {
+    router.post("/elasticsearch/:modelName", (request, response) => {
       let modelName = request.params.modelName
       let searchOptions = request.body
 
@@ -47,6 +48,24 @@ class AppRoutes {
           response.json(result.body.hits.hits)
         }
       })
+
+    })
+
+    router.post("/solrsearch/:modelName", (request, response) => {
+      let modelName = request.params.modelName
+      let searchOptions = request.body
+      console.log(searchOptions)
+
+      let solrUrl = `${process.env.SOLR_URL}/solr/${modelName}/query`
+      axios.post(solrUrl, searchOptions).then((results) => {
+        console.log(results.data.response.docs)
+        response.json(results.data.response.docs)
+      }).catch((error) => {
+        console.log(error)
+        response.json(error)
+      }).finally(() => {
+        // always executed
+      })  
 
     })
   }

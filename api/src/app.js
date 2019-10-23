@@ -30,7 +30,7 @@ app.use("/:action/:modelName", (request, response, next) => {
     "url:": request.originalUrl,
     "action": action,
     "modelName": modelName,
-    "data": data 
+    "data": JSON.stringify(data)
   })
 
   if(action.match(/^(create)$/)) {
