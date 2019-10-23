@@ -64,7 +64,7 @@ class HomeView extends AnimatedView {
     let searchInput = document.getElementById("searchValue")
 
     let request = new XMLHttpRequest()
-    request.open("POST", '/lowest-random/api/elasticsearch/members', true)
+    request.open("POST", `${app.config.baseUrl}/api/elasticsearch/members`, true)
 
     request.setRequestHeader("content-type", "application/json")
     request.setRequestHeader("accept", "application/json")
@@ -128,7 +128,7 @@ class HomeView extends AnimatedView {
     let searchInput = document.getElementById("searchValue")
 
     let request = new XMLHttpRequest()
-    request.open("POST", '/lowest-random/api/solrsearch/members', true)
+    request.open("POST", `${app.config.baseUrl}/api/solrsearch/members`, true)
 
     request.setRequestHeader("content-type", "application/json")
     request.setRequestHeader("accept", "application/json")
