@@ -103,23 +103,26 @@ class HomeView extends AnimatedView {
       }
     }
 
+    let searchTerms = searchInput.value.split(/\s/)
+
+    let queryString = ""
+
+    searchTerms.forEach((term, index) => {
+      if(index > 0) {
+        queryString += " "
+      }
+      queryString += `${term}*`
+    })
+
     let searchOptions = {
       "query": {
         "simple_query_string" : {
           "fields" : ["name"],
-          "query" : `${searchInput.value}*`,
+          "query" : queryString,
           "default_operator": "and"
         }
       }
     }
-
-    /*
-    let searchOptions = {
-      query: {
-        match: { name: searchInput.value }
-      }
-    }
-    */
 
     request.send(JSON.stringify(searchOptions))
   }
@@ -167,17 +170,20 @@ class HomeView extends AnimatedView {
       }
     }
 
-    let searchOptions = {
-      query: `name:${searchInput.value}*`
-    }
+    let searchTerms = searchInput.value.split(/\s/)
 
-    /*
-    let searchOptions = {
-      query: {
-        match: { name: searchInput.value }
+    let queryString = ""
+
+    searchTerms.forEach((term, index) => {
+      if(index > 0) {
+        queryString += " AND "
       }
+      queryString += `name:${term}*`
+    })
+
+    let searchOptions = {
+      query: queryString
     }
-    */
 
     request.send(JSON.stringify(searchOptions))
   }
