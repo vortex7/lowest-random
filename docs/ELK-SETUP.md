@@ -32,7 +32,7 @@ export LOGSTASH_HOME="/usr/share/logstash"
 export KIBANA_HOME="/usr/share/kibana"
 export FILEBEAT_HOME="/usr/share/filebeat"
 
-export PATH="$PATH:$ELASTICSEARCH_HOME/bin:$LOGSTASH_HOME/bin:$KIBANA_HOME/bin:$FILEBEAT_HOME/bin"
+export PATH="\$PATH:\$ELASTICSEARCH_HOME/bin:\$LOGSTASH_HOME/bin:\$KIBANA_HOME/bin:\$FILEBEAT_HOME/bin"
 <Esc>
 :wq
 EOF
@@ -56,6 +56,7 @@ This pipeline reads from an Apache web server log and writes to Elasticsearch
 ```
 cd /etc/logstash/
 vi first-pipeline.conf <<EOF
+:set paste
 o
 input {
   beats {
