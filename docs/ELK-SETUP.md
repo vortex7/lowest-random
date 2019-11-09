@@ -1,6 +1,6 @@
 # ELK Setup
 
-This tutorial requires an Ubuntu or Debian operating system.
+This setup requires an Ubuntu or Debian operating system.
 
 All commands are run as root (not sudo).
 
