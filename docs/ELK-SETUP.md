@@ -27,7 +27,7 @@ cd /root
 vi .bashrc <<EOF
 G
 :set paste
-:i
+:a
 export ELASTICSEARCH_HOME="/usr/share/elasticsearch"
 export LOGSTASH_HOME="/usr/share/logstash"
 export KIBANA_HOME="/usr/share/kibana"
