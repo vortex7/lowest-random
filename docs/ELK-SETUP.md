@@ -26,6 +26,7 @@ apt-get update && apt-get install filebeat
 cd /root
 vi .bashrc <<EOF
 G
+:set paste
 o
 export ELASTICSEARCH_HOME="/usr/share/elasticsearch"
 export LOGSTASH_HOME="/usr/share/logstash"
@@ -93,6 +94,8 @@ logstash -f first-pipeline.conf --config.reload.automatic
 ```
 cd /etc/filebeat/
 vi filebeat.yml <<EOF
+VGd
+:set paste
 o
 filebeat.inputs:
 - type: log
@@ -118,6 +121,7 @@ filebeat -e -c filebeat.yml -d "publish"
 systemctl daemon-reload
 systemctl enable elasticsearch.service
 systemctl start elasticsearch.service
+journalctl --unit elasticsearch --follow
 ```
 
 ## Start Kibana
@@ -128,5 +132,9 @@ kibana --allow-root
 
 ## Test elasticsearch
 
+Replace `2019.11.09-000001` with the date of your log. Find your log name by `_cat/indicies?v`
+
 ```
+curl 'localhost:9200/_cat/indices?v'
+curl -XGET 'localhost:9200/logstash-2019.11.09-000001/_search?pretty&q=response=200'
 ```
