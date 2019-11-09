@@ -27,14 +27,14 @@ cd /root
 vi .bashrc <<EOF
 G
 :set paste
-o
+:i
 export ELASTICSEARCH_HOME="/usr/share/elasticsearch"
 export LOGSTASH_HOME="/usr/share/logstash"
 export KIBANA_HOME="/usr/share/kibana"
 export FILEBEAT_HOME="/usr/share/filebeat"
 
 export PATH="\$PATH:\$ELASTICSEARCH_HOME/bin:\$LOGSTASH_HOME/bin:\$KIBANA_HOME/bin:\$FILEBEAT_HOME/bin"
-<Esc>
+.
 :wq
 EOF
 ```
@@ -58,7 +58,7 @@ This pipeline reads from an Apache web server log and writes to Elasticsearch
 cd /etc/logstash/
 vi first-pipeline.conf <<EOF
 :set paste
-o
+:i
 input {
   beats {
     port => "5044"
@@ -77,7 +77,7 @@ output {
     hosts => [ "localhost:9200" ]
   }
 }
-<Esc>
+.
 :wq
 EOF
 ```
@@ -96,14 +96,14 @@ cd /etc/filebeat/
 vi filebeat.yml <<EOF
 VGd
 :set paste
-o
+:i
 filebeat.inputs:
 - type: log
   paths:
     - /root/wip/logstash-tutorial.log 
 output.logstash:
   hosts: ["localhost:5044"]
-<Esc>
+.
 :wq
 EOF
 ```
