@@ -2,6 +2,10 @@
 
 This setup requires an Ubuntu or Debian operating system.
 
+This setup follows this article:
+
+https://www.elastic.co/guide/en/logstash/current/advanced-pipeline.html
+
 Note: All commands are run as root (not sudo). To become root, I set up an alias and put it into my non-root user's .bashrc (in my case, developer):
 
 ```
