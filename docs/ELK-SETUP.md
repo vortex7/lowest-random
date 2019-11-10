@@ -2,7 +2,11 @@
 
 This setup requires an Ubuntu or Debian operating system.
 
-All commands are run as root (not sudo).
+Note: All commands are run as root (not sudo). To become root, I set up an alias and put it into my non-root user's .bashrc (in my case, developer):
+
+```
+alias root="sudo su -"
+```
 
 ## Install java
 ```
